@@ -80,7 +80,7 @@ app.on('request', (req, res) => {
         res.write(Buffer.from(response));
       })
       .catch((err) => {
-        text.push(err);
+        text.push(err instanceof Error ? err.message : err.toString());
         const response = text.join('\n');
         res.setHeader('content-Type', 'text/plain');
         res.setHeader('content-Length', response.length);
@@ -92,4 +92,3 @@ app.on('request', (req, res) => {
 
 app.listen(1245);
 module.exports = app;
-// module.exports = countStudents;
