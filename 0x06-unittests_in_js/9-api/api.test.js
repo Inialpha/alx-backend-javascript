@@ -22,6 +22,12 @@ describe('index', () => {
       expect(res.statusCode).to.be.equal(404);
     })
   });
+
+  it('test /cart/:id/(//d+)', () => {
+    request.get('http://localhost:7865/cart/abc123!', (err, res, body) => {
+      expect(res.statusCode).to.be.equal(404);
+    })
+  });
 })
 
 
