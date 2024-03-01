@@ -28,6 +28,13 @@ describe('index', () => {
       expect(res.statusCode).to.be.equal(404);
     })
   });
+
+  it('GET /cart/:id returns 404 response for non-numeric values in :id', (done) => {
+    request.get('http://localhost:7865/cart/d200-44a5-9de6', (_err, res, _body) => {
+      expect(res.statusCode).to.be.equal(404);
+      done();
+    });
+  });
 })
 
 
